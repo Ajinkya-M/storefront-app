@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    Hello World! {% if order %}
+    <ul>
+      {% for order in orders %}
+
+      <li>{{order.id}} - {{order.customer.first_name}}</li>
+
+      {% endfor %}
+    </ul>
+    {% endif %}
+
+    <ul>
+      {% for customer in customers %}
+
+      <li>
+        {{customer.id}} - {{customer.first_name}} - {{customer.amount_spent}}
+      </li>
+
+      {% endfor %}
+    </ul>
+
+    {% if sale %}
+    <table border="1">
+      <tr>
+        <th>Category</th>
+        <th>Total Orders</th>
+        <th>Total Sale</th>
+      </tr>
+      {% for sale_category in sale %}
+
+      <tr>
+        <td>{{sale_category.title}}</td>
+        <td>{{sale_category.total_orders}}</td>
+        <td>{{sale_category.total_sale}}</td>
+      </tr>
+
+      {% endfor %}
+    </table>
+    {% endif %}
+  </body>
+</html>
